@@ -127,7 +127,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-279" y="1151"/>
+            <point key="canvasLocation" x="-281" y="1441"/>
+        </scene>
+        <!--QuizQuestion-->
+        <scene sceneID="uYn-FY-I9k">
+            <objects>
+                <viewController storyboardIdentifier="QuizQuestion" title="QuizQuestion" id="SBQ-ga-M9b" customClass="QuizQuestionViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LlP-Pe-8Cj"/>
+                        <viewControllerLayoutGuide type="bottom" id="7pT-mg-hom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o8r-he-tok">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ysr-Wz-WLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="758"/>
+        </scene>
+        <!--QuizFinished-->
+        <scene sceneID="mv4-mW-qzb">
+            <objects>
+                <viewController storyboardIdentifier="QuizFinished" title="QuizFinished" id="g8L-ra-DXP" customClass="QuizFinishedViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P7x-5u-SCK"/>
+                        <viewControllerLayoutGuide type="bottom" id="BD6-E7-Nuf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6N-fF-egx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWb-jY-hMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="2131"/>
+        </scene>
+        <!--QuizAnswer-->
+        <scene sceneID="UvX-pp-oro">
+            <objects>
+                <viewController storyboardIdentifier="QuizAnswer" title="QuizAnswer" id="epK-hv-xQp" customClass="QuizAnswerViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5b4-00-edc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nzd-I1-jS0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="QuizQuestion" id="1DU-od-Eb3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrg-fd-Mys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="1441"/>
         </scene>
     </scenes>
 </document>
