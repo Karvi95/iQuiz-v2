@@ -74,8 +74,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I19-vK-3cf">
-                                                    <rect key="frame" x="204" y="77" width="355" height="9"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I19-vK-3cf">
+                                                    <rect key="frame" x="204" y="77" width="395" height="9"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="7"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -94,11 +94,13 @@
                                                 <constraint firstItem="XaR-ZH-o2x" firstAttribute="leading" secondItem="HE4-hq-LPY" secondAttribute="trailing" constant="11" id="wTN-go-eIQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="topicAuthor" destination="I19-vK-3cf" id="uXp-fU-RZ9"/>
                                             <outlet property="topicDescr" destination="XaR-ZH-o2x" id="vqv-Pl-bv4"/>
                                             <outlet property="topicName" destination="Uor-86-cFj" id="krH-N7-xYy"/>
                                             <outlet property="topicPhoto" destination="HE4-hq-LPY" id="BcP-eG-3hA"/>
+                                            <outletCollection property="gestureRecognizers" destination="ze5-fV-cdd" appends="YES" id="lwD-YH-Baa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -126,6 +128,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ze5-fV-cdd"/>
             </objects>
             <point key="canvasLocation" x="-281" y="1441"/>
         </scene>
@@ -202,6 +205,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TNl-QT-9yH" firstAttribute="top" secondItem="OZk-z8-PHg" secondAttribute="bottom" constant="127" id="3iP-us-Sj3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TNl-QT-9yH" secondAttribute="trailing" constant="245" id="7dg-nO-aU9"/>
@@ -227,10 +231,16 @@
                             <constraint firstItem="7pT-mg-hom" firstAttribute="top" secondItem="yDg-y2-xMb" secondAttribute="bottom" constant="166" id="smc-PT-AMo"/>
                             <constraint firstItem="zxF-gH-zl0" firstAttribute="top" secondItem="LlP-Pe-8Cj" secondAttribute="bottom" constant="-2" id="vj3-W5-CRQ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="l2S-aN-IDe" appends="YES" id="3CT-lW-3D5"/>
+                            <outletCollection property="gestureRecognizers" destination="UPH-zv-Pq9" appends="YES" id="peK-GG-iAm"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Nyr-11-IvH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ysr-Wz-WLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="l2S-aN-IDe"/>
+                <swipeGestureRecognizer direction="right" id="UPH-zv-Pq9"/>
             </objects>
             <point key="canvasLocation" x="427" y="705"/>
         </scene>
@@ -294,10 +304,17 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gbj-nB-enj" appends="YES" id="MUN-WF-gvt"/>
+                            <outletCollection property="gestureRecognizers" destination="UiU-TK-aAx" appends="YES" id="3oT-dV-hhp"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Ybx-lt-dhI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWb-jY-hMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="gbj-nB-enj"/>
+                <swipeGestureRecognizer direction="right" id="UiU-TK-aAx"/>
             </objects>
             <point key="canvasLocation" x="427" y="2174"/>
         </scene>
@@ -355,6 +372,7 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Nzd-I1-jS0" firstAttribute="top" secondItem="Zy8-CK-vKc" secondAttribute="bottom" constant="17" id="2eE-dq-QvW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cde-Dr-SBq" secondAttribute="trailing" constant="245" id="5dO-4h-Hhn"/>
@@ -376,10 +394,16 @@
                                 <exclude reference="sYZ-vc-Lwy"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mtW-P4-3YA" appends="YES" id="ver-6t-vy1"/>
+                            <outletCollection property="gestureRecognizers" destination="cVW-zN-ljt" appends="YES" id="0V0-DD-rMH"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="bwG-eA-kNn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrg-fd-Mys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="mtW-P4-3YA"/>
+                <swipeGestureRecognizer direction="right" id="cVW-zN-ljt"/>
             </objects>
             <point key="canvasLocation" x="427" y="1441"/>
         </scene>
