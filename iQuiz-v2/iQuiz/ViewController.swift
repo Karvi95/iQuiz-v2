@@ -32,12 +32,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+        let data = str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
+            if let names = json["names"] as? [String] {
+                print(names)
+            }
+        } catch let error as NSError {
+            print("Failed to load: \(error.localizedDescription)")
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
