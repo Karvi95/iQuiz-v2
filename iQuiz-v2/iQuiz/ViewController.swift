@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")]
     var authors = ["- Tao Wang", "- Anonymous" ,"- Cassandra Teas"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,7 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
             if let names = json["names"] as? [String] {
-                print(names)
+                print("MY PRINT: \(names)")
             }
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
