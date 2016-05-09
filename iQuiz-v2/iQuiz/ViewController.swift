@@ -33,18 +33,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
-        let data = str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        let str = "[{ \"title\":\"Science!\", \"desc\":\"Because SCIENCE!\", \"questions\":[{\"text\":\"What is fire?\",\"answer\":\"1\", \"answers\":[\"One of the four classical elements\",\"A magical reaction given to us by God\", \"A band that hasn't yet been discovered\", \"Fire! Fire! Fire! heh-heh\"]}]}"
         
+//        "[{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+        let data = str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
-            if let names = json["names"] as? [String] {
-                print("MY PRINT: \(names)")
+            if let titles = json["title"] as? String {
+                NSLog("MY PRINT \(titles)")
             }
         } catch let error as NSError {
-            print("Failed to load: \(error.localizedDescription)")
+            NSLog("Failed to load: \(error.localizedDescription)")
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
