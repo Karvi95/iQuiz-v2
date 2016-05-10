@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D08464C1CE2AC2A009E6397 /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D08464B1CE2AC2A009E6397 /* Structure.swift */; };
 		9D44F4C21CD7E58700DDCB01 /* QuizQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44F4C11CD7E58700DDCB01 /* QuizQuestionViewController.swift */; };
 		9D44F4C41CD7E61500DDCB01 /* QuizAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44F4C31CD7E61500DDCB01 /* QuizAnswerViewController.swift */; };
 		9D44F4C61CD7E63900DDCB01 /* QuizFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44F4C51CD7E63900DDCB01 /* QuizFinishedViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D08464B1CE2AC2A009E6397 /* Structure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
 		9D44F4C11CD7E58700DDCB01 /* QuizQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizQuestionViewController.swift; sourceTree = "<group>"; };
 		9D44F4C31CD7E61500DDCB01 /* QuizAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizAnswerViewController.swift; sourceTree = "<group>"; };
 		9D44F4C51CD7E63900DDCB01 /* QuizFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizFinishedViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 		9DD1E62E1CD3E9D300013F1C = {
 			isa = PBXGroup;
 			children = (
+				9D08464B1CE2AC2A009E6397 /* Structure.swift */,
 				9DD1E6391CD3E9D300013F1C /* iQuiz */,
 				9DD1E6381CD3E9D300013F1C /* Products */,
 			);
@@ -152,6 +155,7 @@
 				9D44F4C21CD7E58700DDCB01 /* QuizQuestionViewController.swift in Sources */,
 				9DD1E63B1CD3E9D300013F1C /* AppDelegate.swift in Sources */,
 				9D44F4C61CD7E63900DDCB01 /* QuizFinishedViewController.swift in Sources */,
+				9D08464C1CE2AC2A009E6397 /* Structure.swift in Sources */,
 				9D44F4C41CD7E61500DDCB01 /* QuizAnswerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
