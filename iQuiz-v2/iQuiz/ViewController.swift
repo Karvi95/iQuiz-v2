@@ -44,7 +44,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendRequest(<#T##url: String##String#>, parameters: <#T##[String : AnyObject]#>, completionHandler: <#T##(NSData?, NSURLResponse?, NSError?) -> Void#>)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
