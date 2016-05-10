@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -100,7 +100,6 @@
                                             <outlet property="topicDescr" destination="XaR-ZH-o2x" id="vqv-Pl-bv4"/>
                                             <outlet property="topicName" destination="Uor-86-cFj" id="krH-N7-xYy"/>
                                             <outlet property="topicPhoto" destination="HE4-hq-LPY" id="BcP-eG-3hA"/>
-                                            <outletCollection property="gestureRecognizers" destination="ze5-fV-cdd" appends="YES" id="lwD-YH-Baa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -128,9 +127,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ze5-fV-cdd"/>
             </objects>
-            <point key="canvasLocation" x="-281" y="1441"/>
+            <point key="canvasLocation" x="-398" y="1441"/>
         </scene>
         <!--QuizQuestion-->
         <scene sceneID="uYn-FY-I9k">

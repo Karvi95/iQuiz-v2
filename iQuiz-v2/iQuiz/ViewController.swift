@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate {
 
+    func retrieveData(alert: UIAlertAction!) {
+        NSLog("Store user input as variable, reload page, re-search")
+    }
+    
     func dismissAlert(alert: UIAlertAction!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -17,8 +21,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func showAlert(sender: AnyObject) {
         let alertController : UIAlertController = UIAlertController(title: "Alert!", message: "Settings go here.", preferredStyle: .Alert)
         let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: dismissAlert)
-
+        
         alertController.addAction(okAction)
+    
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+            textField.placeholder = "Enter URL to retrieve information."
+        }
+        
+        let retrieveAction : UIAlertAction = UIAlertAction(title: "Check Now", style: .Cancel, handler: retrieveData)
+        
+        alertController.addAction(retrieveAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -32,19 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sendRequest(<#T##url: String##String#>, parameters: <#T##[String : AnyObject]#>, completionHandler: <#T##(NSData?, NSURLResponse?, NSError?) -> Void#>)
         // Do any additional setup after loading the view, typically from a nib.
-        let str = "[{ \"title\":\"Science!\", \"desc\":\"Because SCIENCE!\", \"questions\":[{\"text\":\"What is fire?\",\"answer\":\"1\", \"answers\":[\"One of the four classical elements\",\"A magical reaction given to us by God\", \"A band that hasn't yet been discovered\", \"Fire! Fire! Fire! heh-heh\"]}]}"
-        
-//        "[{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
-        let data = str.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: AnyObject]
-            if let titles = json["title"] as? String {
-                NSLog("MY PRINT \(titles)")
-            }
-        } catch let error as NSError {
-            NSLog("Failed to load: \(error.localizedDescription)")
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,9 +53,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+
     
-    
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }
