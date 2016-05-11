@@ -25,33 +25,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if (statusCode == 200) {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                    
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     
                     
                     for s in subject {
-                        
-                        let choices : [String]
-                        
-                        var aQuestion : Question
-                        let questionsForASubject : [Question]
-                        
-                        
-                        var questionsAvailable : [[String : AnyObject]] = s["questions"]! as! [[String : AnyObject]]
 
-                        for i in 0..<questionsAvailable.count /* Array of String to AnyObject */ {
+//                        var aQuestion : Question
+//                        let questionsForASubject : [Question]
+//                        
+//                        var questionsAvailable : [[String : AnyObject]] = s["questions"]! as! [[String : AnyObject]]
+//                        
+//                        for i in 0..<questionsAvailable.count {
+//                            let choices : [String] = []
+//                            let answersAvailable : [String] = questionsAvailable = questionsAvailable[i]["answers"] as! [String]
+//                            
+//                            var aQuestion : Question
+//                            
+//                            for j in 0..<answersAvailable.count {
+//                                choices.append(j)
+//                            }
+//                            
+//                            aQuestion = Question(text: (questionsAvailable[i]["text"] as? String)!, answer: (Int((questionsAvailable[i]["text"] as? String)!)! - 1), choices: choices)
+//                            questionsForASubject.append(aQuestion)
+//                        }
                         
-                            let answersAvailable : [String] = questionsAvailable = questionsAvailable[i]["answers"] as! [String]
-                            
-                            for j in 0..<answersAvailable.count {
-                                choices.append(j)
-                            }
-                            
-                            aQuestion = Question(text: (questionsAvailable[i]["text"] as? String)!, answer: (Int((questionsAvailable[i]["text"] as? String)!)! - 1), choices: choices)
-                            questionsForASubject.append(aQuestion)
-                        }
-                        
-                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: questionsForASubject)
+                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: (s["questions"] as? [AnyObject])!)
                         self.topicsInQuiz.append(aTopic)
                     }
                    
@@ -89,7 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     print("USER INPUT: \(self!.targetURL)")
                 }
             }
-            // HTTPRequest()
+            self!.HTTPRequest()
         })
         
         alertController.addAction(retrieveAction)
@@ -107,7 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        HTTPRequest()
+        HTTPRequest()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
