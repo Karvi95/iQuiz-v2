@@ -14,8 +14,6 @@ class QuizComponentCell: UITableViewCell {
     @IBOutlet weak var topicName: UILabel!
     @IBOutlet weak var topicDescr: UILabel!
     
-    @IBOutlet weak var topicAuthor: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,30 +9,35 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate {
-    var dataArray : NSArray?
-    var targetURL = "tednewardsandbox.site44.com/questions.json"
+    var targetURL = "http://tednewardsandbox.site44.com/questions.json"
     var topicsInQuiz : [Topic] = [Topic]()
     
     func HTTPRequest() {
-        let baseString = "http://"
-        let request = NSMutableURLRequest(URL: NSURL(string: (baseString + targetURL))!)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            
+        let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: targetURL)!) { (data, response, error) -> Void in
+//            print(self.targetURL)
             let HTTPResponse = response as! NSHTTPURLResponse
             let statusCode = HTTPResponse.statusCode
             
             if (statusCode == 200) {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+//                    print(json)
+                    
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     
                     
                     for s in subject {
-
+                        guard let name = s["title"] as? String,
+                            let desc = s["desc"] as? String,
+                            let questions = s["questions"] else {return}
+                        
+                        self.names.append(name)
+                        self.descrs.append(desc)
+                        self.questions.append(questions)
+                        
 //                        var aQuestion : Question
 //                        let questionsForASubject : [Question]
-//                        
+//
 //                        var questionsAvailable : [[String : AnyObject]] = s["questions"]! as! [[String : AnyObject]]
 //                        
 //                        for i in 0..<questionsAvailable.count {
@@ -49,14 +54,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //                            questionsForASubject.append(aQuestion)
 //                        }
                         
-                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: (s["questions"] as? [AnyObject])!)
-                        self.topicsInQuiz.append(aTopic)
+                        
+                        
+                        
+//                        
+//                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: (s["questions"] as? [AnyObject])!)
+//                        self.topicsInQuiz.append(aTopic)
                     }
                    
  
                 } catch {
                     print("Error Response! \n\(error)")
                 }
+            } else {
+                
             }
             
         }
@@ -85,9 +96,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if enteredText != nil {
                     self!.targetURL = enteredText!
                     print("USER INPUT: \(self!.targetURL)")
+                } else {
+                    self!.targetURL = "http://tednewardsandbox.site44.com/questions.json"
                 }
+                
             }
-            self!.HTTPRequest()
+self!.HTTPRequest()
         })
         
         alertController.addAction(retrieveAction)
@@ -97,12 +111,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var QuizTable: UITableView!
     
-    var names = ["Mathematics", "Marvel Super Heroes", "Science"]
-    var descrs = ["Once Euler looked out \nat seven bridges to cross. \n'Can’t be done,' he said.", "What can go wrong now? \nGuns, gods, monsters, heroes too! \nNot-death, shwarma break.", "Contract or expand? \nNot the universe's size \nBut the human mind."]
+    var names : [String] = []
+    var descrs : [String] = []
     var images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")]
-    var authors = ["- Tao Wang", "- Anonymous" ,"- Cassandra Teas"]
-    
-    
+    var questions: [AnyObject] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         HTTPRequest()
@@ -123,9 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.topicPhoto.image = images[indexPath.row]
         cell.topicName.text = names[indexPath.row]
-        cell.topicDescr.text = descrs[indexPath.row]
-        cell.topicAuthor.text = authors[indexPath.row]
-        
+        cell.topicDescr.text = descrs[indexPath.row]      
         return cell
     }
 }
