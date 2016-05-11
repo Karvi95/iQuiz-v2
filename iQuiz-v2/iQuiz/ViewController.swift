@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate {
-
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate {
     
+    var dataDictionary : NSDictionary?
+    var targetURL = "tednewardsandbox.site44.com/questions.json"
+    var input = "NotSettingproperly"
+
     func HTTPRequest() {
-        let url = NSURL(string: "http://tednewardsandbox.site44.com/questions.json")
+        let baseString = "http://"
+        let url = NSURL(string: (baseString + targetURL))
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            if data != nil {
-                print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+            if (data != nil) {
+                do {
+                    self.dataDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
+                } catch {
+                    self.dataDictionary = nil
+                }
             }
             else {
-                print(error)
+                print("No Data")
             }
         }
         
@@ -27,7 +35,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func retrieveData(alert: UIAlertAction!) {
-        NSLog("Store user input as variable, reload page, re-search")
+        targetURL = self.input
+        print("USER INPUT: \(self.input)")
+//      HTTPRequest()
+        print("Store user input as variable, reload page, re-search")
     }
     
     func dismissAlert(alert: UIAlertAction!) {
@@ -39,12 +50,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: dismissAlert)
         
         alertController.addAction(okAction)
-    
+        
         alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
             textField.placeholder = "Enter URL to retrieve information."
         }
-        
-        let retrieveAction : UIAlertAction = UIAlertAction(title: "Check Now", style: .Cancel, handler: retrieveData)
+
+        let retrieveAction : UIAlertAction = UIAlertAction(title: "Check Now", style: .Cancel, handler: {[weak self]
+            (paramAction:UIAlertAction!) in
+            if let textFields = alertController.textFields {
+                let theTextFields = textFields as [UITextField]
+                let enteredText = theTextFields[0].text
+                print("enteredText: \(enteredText)")
+                if enteredText != nil {
+                    self!.targetURL = enteredText!
+                    print("USER INPUT: \(self!.targetURL)")
+                }
+            }
+        })
         
         alertController.addAction(retrieveAction)
         
