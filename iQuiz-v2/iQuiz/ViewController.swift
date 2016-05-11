@@ -13,8 +13,41 @@ struct URLToGo {
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate {
-
-
+    
+    let theData = Data()
+    
+    @IBOutlet weak var QuizTable: UITableView!
+    
+    var names : [String] = []
+    var descrs : [String] = []
+    var images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")]
+    var questions: [AnyObject] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        QuizTable.dataSource = self
+        QuizTable.delegate = self
+        self.theData.HTTPRequest {
+            
+            self.names = self.theData.names
+            self.descrs = self.theData.descrs
+            
+            self.QuizTable.reloadData()
+        }
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
     func dismissAlert(alert: UIAlertAction!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -38,7 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     URLToGo.targetURL = enteredText!
                     print("USER INPUT: \(URLToGo.targetURL)")
                 } else {
-                    URLToGo.targetURL = "http://tednewardsandbox.site44.com/questions.json"
+                    URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
                 }
                 
             }
@@ -49,23 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    @IBOutlet weak var QuizTable: UITableView!
-    
-    var names : [String] = []
-    var descrs : [String] = []
-    var images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")]
-    var questions: [AnyObject] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }

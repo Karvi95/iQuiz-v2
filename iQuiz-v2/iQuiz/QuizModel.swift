@@ -22,14 +22,14 @@ class Data {
     
     func HTTPRequest(completionHandler: () -> Void) {
         let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: targetURL)!) { (data, response, error) -> Void in
-            // print(self.targetURL)
+            print(self.targetURL)
             let HTTPResponse = response as! NSHTTPURLResponse
             let statusCode = HTTPResponse.statusCode
         
             if (statusCode == 200) {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                    // print(json)
+                     print(json)
                 
                     guard let subject = json as? [[String : AnyObject]] else {return}
                 
