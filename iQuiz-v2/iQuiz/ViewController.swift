@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var dataDictionary : NSDictionary?
     var targetURL = "tednewardsandbox.site44.com/questions.json"
-    var input = "NotSettingproperly"
 
     func HTTPRequest() {
         let baseString = "http://"
@@ -33,14 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         task.resume()
     }
-    
-    func retrieveData(alert: UIAlertAction!) {
-        targetURL = self.input
-        print("USER INPUT: \(self.input)")
-//      HTTPRequest()
-        print("Store user input as variable, reload page, re-search")
-    }
-    
+
     func dismissAlert(alert: UIAlertAction!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -60,12 +52,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let textFields = alertController.textFields {
                 let theTextFields = textFields as [UITextField]
                 let enteredText = theTextFields[0].text
-                print("enteredText: \(enteredText)")
                 if enteredText != nil {
                     self!.targetURL = enteredText!
                     print("USER INPUT: \(self!.targetURL)")
                 }
             }
+            // HTTPRequest()
         })
         
         alertController.addAction(retrieveAction)
@@ -92,9 +84,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-
-    
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }
