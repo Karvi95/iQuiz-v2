@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate {
     var dataArray : NSArray?
     var targetURL = "tednewardsandbox.site44.com/questions.json"
-
+    var topicsInQuiz : [Topic] = [Topic]()
+    
     func HTTPRequest() {
         let baseString = "http://"
         let request = NSMutableURLRequest(URL: NSURL(string: (baseString + targetURL))!)
@@ -23,15 +24,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             if (statusCode == 200) {
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
                     
-                    guard let quiz = json as? [[String:AnyObject]] else {return}
+                    guard let subject = json as? [[String : AnyObject]] else {return}
                     
-                    for q in quiz {
+                    
+                    for s in subject {
+                        
+                        let choices : [String]
+                        
+                        var aQuestion : Question
+                        let questionsForASubject : [Question]
+                        
+                        
+                        var questionsAvailable : [[String : AnyObject]] = s["questions"]! as! [[String : AnyObject]]
+
+                        for i in 0..<questionsAvailable.count /* Array of String to AnyObject */ {
+                        
+                            let answersAvailable : [String] = questionsAvailable = questionsAvailable[i]["answers"] as! [String]
+                            
+                            for j in 0..<answersAvailable.count {
+                                choices.append(j)
+                            }
+                            
+                            aQuestion = Question(text: (questionsAvailable[i]["text"] as? String)!, answer: (Int((questionsAvailable[i]["text"] as? String)!)! - 1), choices: choices)
+                            questionsForASubject.append(aQuestion)
+                        }
+                        
+                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: questionsForASubject)
+                        self.topicsInQuiz.append(aTopic)
                     }
-                    
+                   
+ 
                 } catch {
-                    print("Error with Json: \(error)")
+                    print("Error Response! \n\(error)")
                 }
             }
             
@@ -81,7 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HTTPRequest()
+//        HTTPRequest()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
