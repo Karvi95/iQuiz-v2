@@ -114,7 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="QuizTable" destination="3Jn-oX-Ia9" id="GkE-hC-VV4"/>
+                        <outlet property="QuizTable" destination="3Jn-oX-Ia9" id="gxp-z1-xTZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
