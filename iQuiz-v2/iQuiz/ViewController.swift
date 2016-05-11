@@ -9,8 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate {
-    
-    var dataDictionary : NSDictionary?
+    var dataArray : NSArray?
     var targetURL = "tednewardsandbox.site44.com/questions.json"
 
     func HTTPRequest() {
@@ -19,17 +18,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             if (data != nil) {
+                
                 do {
-                    self.dataDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary
+                    self.dataArray = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSArray
                 } catch {
-                    self.dataDictionary = nil
+                    self.dataArray = nil
                 }
+                
             }
             else {
                 print("No Data")
             }
         }
-        
         task.resume()
     }
 
@@ -99,4 +99,3 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 }
-
