@@ -35,14 +35,16 @@ class Data {
                 
                 
                     for s in subject {
-                        guard let name = s["title"] as? String,
-                            let desc = s["desc"] as? String,
-                            let questions = s["questions"] else {return}
-                    
-                        self.names.append(name)
-                        self.descrs.append(desc)
-                        self.questions.append(questions)
-                    
+                        if let name = s["title"] as? String{
+                            self.names.append(name)
+                        }
+                        if let desc = s["desc"] as? String {
+                            self.descrs.append(desc)
+                        }
+                        if let questions = s["questions"] {
+                            self.questions.append(questions)
+                        }
+
                         //                        var aQuestion : Question
                         //                        let questionsForASubject : [Question]
                         //
@@ -64,7 +66,7 @@ class Data {
                     
                     
                     
-                    
+                     
                         //
                         //                        let aTopic = Topic(subject: (s["title"] as? String)!, desc: (s["desc"] as? String)!, questions: (s["questions"] as? [AnyObject])!)
                         //                        self.topicsInQuiz.append(aTopic)
