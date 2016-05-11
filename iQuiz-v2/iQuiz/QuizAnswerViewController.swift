@@ -10,18 +10,31 @@ import UIKit
 
 class QuizAnswerViewController: UIViewController {
 
-    @IBOutlet weak var AnswerComment: UILabel!
+    @IBOutlet weak var QuestionName: UILabel!
     
     @IBOutlet weak var AnswerImage: UIImageView!
-    @IBOutlet weak var AnswerName: UILabel!
+    @IBOutlet weak var correctAnswer: UILabel!
+    
+    var userAnswer : String!
+    var intendedAnswer : String!
+    var userScore : Int = 0
     
     @IBAction func next(sender: UIButton) {
     }
 
+    var answerImages = [UIImage(named: "y"), UIImage(named: "n")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if userAnswer == intendedAnswer {
+            AnswerImage.image = answerImages[0]
+            userScore += 1
+        } else {
+            AnswerImage.image = answerImages[1]
+        }
+        correctAnswer.text = intendedAnswer
     }
 
     override func didReceiveMemoryWarning() {

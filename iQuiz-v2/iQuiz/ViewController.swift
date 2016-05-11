@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var names : [String] = []
     var descrs : [String] = []
-    var images = [UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")]
+    var images = [UIImage(named: "3"), UIImage(named: "2"), UIImage(named: "1")]
     var questions: [AnyObject] = []
     
     override func viewDidLoad() {
@@ -69,7 +69,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let enteredText = theTextFields[0].text
                 if enteredText != nil {
                     URLToGo.targetURL = enteredText!
-                    print("USER INPUT: \(URLToGo.targetURL)")
                 } else {
                     URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
                 }

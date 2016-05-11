@@ -467,6 +467,8 @@
                         <outlet property="AnswerComment" destination="cde-Dr-SBq" id="byG-7E-FYZ"/>
                         <outlet property="AnswerImage" destination="PgM-2d-5Ta" id="jkl-nb-DB3"/>
                         <outlet property="AnswerName" destination="cde-Dr-SBq" id="6pF-mG-aJZ"/>
+                        <outlet property="QuestionName" destination="hKq-iL-ZoN" id="JhI-rW-dLe"/>
+                        <outlet property="correctAnswer" destination="cde-Dr-SBq" id="xcY-9a-Vch"/>
                         <outlet property="next" destination="Zy8-CK-vKc" id="hZI-gx-ZZE"/>
                     </connections>
                 </viewController>

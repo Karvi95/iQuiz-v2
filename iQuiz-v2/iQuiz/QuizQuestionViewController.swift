@@ -20,16 +20,36 @@ class QuizQuestionViewController: UIViewController {
     @IBAction func submit(sender: UIButton) {
     }
 
-    
+    var questionsFromJSON : [AnyObject] = []
     var questionsForASubject : [Question] = []
-    
-    
+    var total : Int = 0
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        guard let unprocesseds = questionsFromJSON as [AnyObject]? else {return}
+        
+        for question in unprocesseds {
+            guard let text = question["text"] as? String,
+                let answer = question["answer"] as? String,
+                let choices = question["answers"] as? [String] else {return}
+            
+            questionsForASubject.append(Question(text: text, answer: (Int(answer)! - 1), choices: choices))
+        }
+        
+        total = questionsForASubject.count
+        
+        for aQuestion in questionsForASubject {
+            QuestionName.text = aQuestion.text
+            
+            firstChoice.text = aQuestion.choices[0]
+            secondChoice.text = aQuestion.choices[1]
+            thirdChoice.text = aQuestion.choices[2]
+            fourthChoice.text = aQuestion.choices[3]
+        }
         
     }
 
