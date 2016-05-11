@@ -14,25 +14,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func HTTPRequest() {
         let baseString = "http://"
-        let url = NSURL(string: (baseString + targetURL))
+        let request = NSMutableURLRequest(URL: NSURL(string: (baseString + targetURL))!)
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            if (data != nil) {
-                
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            
+            let HTTPResponse = response as! NSHTTPURLResponse
+            let statusCode = HTTPResponse.statusCode
+            
+            if (statusCode == 200) {
                 do {
-                    self.dataArray = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSArray
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    
+                    guard let quiz = json as? [[String:AnyObject]] else {return}
+                    
+                    for q in quiz {
+                    }
+                    
                 } catch {
-                    self.dataArray = nil
+                    print("Error with Json: \(error)")
                 }
-                
             }
-            else {
-                print("No Data")
-            }
+            
         }
         task.resume()
     }
-
+    
     func dismissAlert(alert: UIAlertAction!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
