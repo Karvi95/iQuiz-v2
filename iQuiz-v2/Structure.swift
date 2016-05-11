@@ -11,22 +11,22 @@ import Foundation
 public class Question {
     public var text : String
     public var answer : Int
-    public var answers : [String]
+    public var choices : [String]
     
-    init(text : String, answer : Int, answers : [String]){
+    init(text : String, answer : Int, choices : [String]){
         self.text = text;
         self.answer = answer;
-        self.answers = answers;
+        self.choices = choices;
     }
 }
 
 public class Structure {
-    public var title : String
+    public var subject : String
     public var desc : String
     public var questions : [Question]
     
-    init(title : String, desc : String, questions : [Question]) {
-        self.title = title
+    init(subject : String, desc : String, questions : [Question]) {
+        self.subject = subject
         self.desc = desc
         self.questions = questions
     }
