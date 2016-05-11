@@ -10,6 +10,13 @@ import UIKit
 
 class QuizFinishedViewController: UIViewController {
 
+    @IBOutlet weak var userScore: UILabel!
+    @IBOutlet weak var Total: UILabel!
+    @IBOutlet weak var resultComment: UILabel!
+    
+    @IBAction func returnHome(sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,14 @@ import UIKit
 
 class QuizAnswerViewController: UIViewController {
 
+    @IBOutlet weak var AnswerComment: UILabel!
+    
+    @IBOutlet weak var AnswerImage: UIImageView!
+    @IBOutlet weak var AnswerName: UILabel!
+    
+    @IBAction func next(sender: UIButton) {
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

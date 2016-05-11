@@ -10,10 +10,27 @@ import UIKit
 
 class QuizQuestionViewController: UIViewController {
 
+    @IBOutlet weak var QuestionName: UILabel!
+    
+    @IBOutlet weak var firstChoice: UILabel!
+    @IBOutlet weak var secondChoice: UILabel!
+    @IBOutlet weak var thirdChoice: UILabel!
+    @IBOutlet weak var fourthChoice: UILabel!
+    
+    @IBAction func submit(sender: UIButton) {
+    }
+
+    
+    var questionsForASubject : [Question] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
