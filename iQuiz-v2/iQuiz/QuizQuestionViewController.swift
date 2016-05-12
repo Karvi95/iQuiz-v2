@@ -12,14 +12,32 @@ class QuizQuestionViewController: UIViewController {
 
     @IBOutlet weak var QuestionName: UILabel!
     
-    @IBOutlet weak var firstChoice: UILabel!
-    @IBOutlet weak var secondChoice: UILabel!
-    @IBOutlet weak var thirdChoice: UILabel!
-    @IBOutlet weak var fourthChoice: UILabel!
+    @IBOutlet weak var firstChoice: UIButton!
+    @IBOutlet weak var secondChoice: UIButton!
+    @IBOutlet weak var thirdChoice: UIButton!
+    @IBOutlet weak var fourthChoice: UIButton!
+    
+    @IBAction func firstChoicePressed(sender: UIButton) {
+        userAnswer = firstChoice.currentTitle
+    }
+    @IBAction func secondChoicePressed(sender: UIButton) {
+        userAnswer = secondChoice.currentTitle
+    }
+    @IBAction func thirdChoicePressed(sender: UIButton) {
+        userAnswer = thirdChoice.currentTitle
+    }
+    @IBAction func fourthChoicePressed(sender: UIButton) {
+        userAnswer = fourthChoice.currentTitle
+    }
+    
     
     @IBAction func submit(sender: UIButton) {
+        
     }
 
+    var userAnswer : String!
+    var intendedAnswer : String!
+    
     var questionsFromJSON : [AnyObject] = []
     var questionsForASubject : [Question] = []
     var total : Int = 0
@@ -45,10 +63,11 @@ class QuizQuestionViewController: UIViewController {
         for aQuestion in questionsForASubject {
             QuestionName.text = aQuestion.text
             
-            firstChoice.text = aQuestion.choices[0]
-            secondChoice.text = aQuestion.choices[1]
-            thirdChoice.text = aQuestion.choices[2]
-            fourthChoice.text = aQuestion.choices[3]
+            firstChoice.setTitle(aQuestion.choices[0], forState: .Normal)
+            secondChoice.setTitle(aQuestion.choices[1], forState: .Normal)
+            thirdChoice.setTitle(aQuestion.choices[2], forState: .Normal)
+            fourthChoice.setTitle(aQuestion.choices[3], forState: .Normal)
+            
         }
         
     }

@@ -38,7 +38,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.QuizTable.reloadData()
         }
         
-        
+
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 } else {
                     URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
                 }
-                
+                self!.QuizTable.reloadData()
             }
         })
         
@@ -93,5 +94,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.topicName.text = names[indexPath.row]
         cell.topicDescr.text = descrs[indexPath.row]      
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
+        self.presentViewController(qVC, animated: false, completion: nil)
     }
 }

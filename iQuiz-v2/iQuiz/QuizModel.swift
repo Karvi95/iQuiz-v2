@@ -18,7 +18,12 @@ class Data {
 
     var names : [String] = []
     var descrs : [String] = []
-    var questions: [AnyObject] = []
+    
+    var scienceQs : [Question] = []
+    var mathQs : [Question] = []
+    var marvelQs : [Question] = []
+
+    
     
     func HTTPRequest(completionHandler: () -> Void) {
         let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: targetURL)!) { (data, response, error) -> Void in
@@ -40,9 +45,9 @@ class Data {
                         if let desc = s["desc"] as? String {
                             self.descrs.append(desc)
                         }
-                        if let questions = s["questions"] {
-                            self.questions.append(questions)
-                        }
+//                        if let questions = s["questions"] {
+//                            self.questions.append(questions)
+//                        }
                     }
                     
                     completionHandler()
