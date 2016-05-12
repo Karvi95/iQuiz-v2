@@ -32,8 +32,8 @@ class QuizQuestionViewController: UIViewController {
     
     
     @IBAction func submit(sender: UIButton) {
-        
     }
+
 
     var userAnswer : String!
     var intendedAnswer : String!
