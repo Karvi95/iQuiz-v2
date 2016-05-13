@@ -34,6 +34,15 @@ class QuizQuestionViewController: UIViewController {
     @IBAction func submit(sender: UIButton) {
     }
 
+    
+    func highlight() {
+        firstChoice.backgroundColor = UIColor.blueColor()
+        secondChoice.backgroundColor = UIColor.blueColor()
+        thirdChoice.backgroundColor = UIColor.blueColor()
+        fourthChoice.backgroundColor = UIColor.blueColor()
+    }
+    
+    
 
     var userAnswer : String!
     var intendedAnswer : String!
