@@ -40,6 +40,8 @@ class QuizQuestionViewController: UIViewController {
     
     
     @IBAction func submit(sender: UIButton) {
+        
+    
     }
 
     
@@ -50,10 +52,13 @@ class QuizQuestionViewController: UIViewController {
         fourthChoice.backgroundColor = UIColor.clearColor()
     }
 
+
+    var currentTopic : Topic!
+
     var userAnswer : String!
     var intendedAnswer : String!
     
-    var currentTopic : Topic!
+    var currQNum : Int = 0
     var total : Int = 0
    
     
@@ -61,6 +66,14 @@ class QuizQuestionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        QuestionName.text = currentTopic!.questions[currQNum].text
+        firstChoice.setTitle(currentTopic.questions[currQNum].choices[0], forState: UIControlState.Normal)
+        secondChoice.setTitle(currentTopic.questions[currQNum].choices[1], forState: UIControlState.Normal)
+        thirdChoice.setTitle(currentTopic.questions[currQNum].choices[2], forState: UIControlState.Normal)
+        fourthChoice.setTitle(currentTopic.questions[currQNum].choices[3], forState: UIControlState.Normal)
+        
+        total = currentTopic.questions.count
     }
 
     override func didReceiveMemoryWarning() {
