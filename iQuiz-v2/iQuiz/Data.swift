@@ -18,11 +18,6 @@ class Data {
     
     var names : [String] = []
     var descrs : [String] = []
-    
-    
-
-
-    var AllQuestions : [[Question]] = []
 
     func checkLocalStorage() {
         //Check if json exists
@@ -50,7 +45,7 @@ class Data {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
                     
-print(json)
+                    // print(json)
                     
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     

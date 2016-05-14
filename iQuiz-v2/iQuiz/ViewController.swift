@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var names : [String] = []
     var descrs : [String] = []
     var images = [UIImage(named: "3"), UIImage(named: "2"), UIImage(named: "1")]
-    var AllQuestions: [[Question]] = []
+    var topicsInQuiz : [Topic] = [Topic]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.names = self.theData.names
             self.descrs = self.theData.descrs
             
-            self.AllQuestions = self.theData.AllQuestions
+            self.topicsInQuiz = self.theData.topicsInQuiz
             
             self.QuizTable.reloadData()
         }
