@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var names : [String] = []
     var descrs : [String] = []
     var images = [UIImage(named: "3"), UIImage(named: "2"), UIImage(named: "1")]
-    var questions: [AnyObject] = []
+    var AllQuestions: [[Question]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             self.names = self.theData.names
             self.descrs = self.theData.descrs
+            
+            self.AllQuestions = self.theData.AllQuestions
             
             self.QuizTable.reloadData()
         }
@@ -94,5 +96,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
         self.presentViewController(qVC, animated: false, completion: nil)
+        
+
     }
 }

@@ -24,6 +24,7 @@ class Data {
     var marvelQs : [Question] = []
     var mathQs : [Question] = []
 
+    var AllQuestions : [[Question]] = []
 
     func checkLocalStorage() {
         //Check if json exists
@@ -51,72 +52,54 @@ class Data {
                 do {
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
                     
-                    // print(json)
+print(json)
                     
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     
                     for s in subject {
-                        if let name = s["title"] as? String{
-                            self.names.append(name)
-                        }
+                        let name = s["title"] as? String
+                        self.names.append(name!)
                         if let desc = s["desc"] as? String {
                             self.descrs.append(desc)
                         }
-                        //                        if let questions = s["questions"] {
-                        //                            self.questions.append(questions)
-                        //                        }
+                        let questions = s["questions"]
+                            for question in questions as! NSArray {
+                                let text = question["text"] as! String
+                                let answerIntAsString = question["answer"] as! String
+                                let choices = question["answers"] as! [String]
+                                let correctAnswer = choices[(Int(answerIntAsString)! - 1)]
+                                switch name! {
+                                    case "Science!":
+                                        self.scienceQs.append(Question(text: text, answer: correctAnswer, choices: choices))
+                                    case "Marvel Super Heroes":
+                                        self.marvelQs.append(Question(text: text, answer: correctAnswer, choices: choices))
+                                    case "Mathematics":
+                                            self.mathQs.append(Question(text: text, answer: correctAnswer, choices: choices))
+                                    default:
+                                            break
+                                }
+                            }
                     }
+                    
+                    self.AllQuestions.append(self.scienceQs)
+                    self.AllQuestions.append(self.marvelQs)
+                    self.AllQuestions.append(self.mathQs)
                     
                     completionHandler()
                     
-                } catch {
+                }  catch {
                     print("Error Response! \n\(error)")
                 }
+//                print("ScienceArray: \(self.scienceQs)")
+//                for scienceQ in self.scienceQs {
+//                    print("Question Name: \(scienceQ.text)")
+//                    print("Question Answer: \(scienceQ.correctAnswer)")
+//                    print("Question Choices: \(scienceQ.choices)")
+//                }
+//                print("MarvelArray: \(self.marvelQs)")
+//                print("MathArray: \(self.mathQs)")
             }
         }
         task.resume()
     }
 }
-
-//            if (statusCode == 200) {
-//                do {
-//                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-//                    
-//                    print(json)
-//                
-//                    guard let subject = json as? NSArray else {return}
-//                
-//                    for s in subject {
-//                        
-//                        let name = s["title"] as? String
-//                        self.names.append(name!)
-//                        let desc = s["desc"] as? String
-//                        self.descrs.append(desc!)
-//                        let questions = s["questions"]
-//                        
-//                        for question in questions as! NSArray{
-//                            let text = question["text"] as! String
-//                            let answerIntAsString = question["answer"] as! String
-//                            let choices = question["answers"] as! [String]
-//                            let correctAnswer = choices[(Int(answerIntAsString)! - 1)]
-//                            
-//                            switch name! {
-//                            case "Science!":
-//                                self.scienceQs.append(Question(text: text, answer: correctAnswer, choices: choices))
-//                            case "Marvel Super Heroes":
-//                                self.marvelQs.append(Question(text: text, answer: correctAnswer, choices: choices))
-//                            case "Mathematics":
-//                                self.mathQs.append(Question(text: text, answer: correctAnswer, choices: choices))
-//                            default:
-//                                break
-//                            }
-//                        }
-//                    }
-//                } catch {
-//                    print("Error Response! \n\(error)")
-//                }
-//            }
-//        }
-//        task.resume()
-//    }
-//}

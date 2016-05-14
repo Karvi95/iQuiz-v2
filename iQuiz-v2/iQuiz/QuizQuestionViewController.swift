@@ -49,13 +49,10 @@ class QuizQuestionViewController: UIViewController {
         thirdChoice.backgroundColor = UIColor.clearColor()
         fourthChoice.backgroundColor = UIColor.clearColor()
     }
-    
-    
 
     var userAnswer : String!
     var intendedAnswer : String!
     
-    var questionsFromJSON : [AnyObject] = []
     var questionsForASubject : [Question] = []
     var total : Int = 0
    
