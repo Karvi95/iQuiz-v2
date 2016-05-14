@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var descrs : [String] = []
     var images = [UIImage(named: "3"), UIImage(named: "2"), UIImage(named: "1")]
     var topicsInQuiz : [Topic] = [Topic]()
+    var topicToSend : Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +99,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
         self.presentViewController(qVC, animated: false, completion: nil)
         
-
+        topicToSend = indexPath.row
+        
+        func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if (segue.identifier == "QuestionSegue") {
+                let DestViewController: QuizQuestionViewController = segue.destinationViewController as! QuizQuestionViewController
+                DestViewController.currentTopic = topicsInQuiz[topicToSend]
+            }
+        }
     }
 }

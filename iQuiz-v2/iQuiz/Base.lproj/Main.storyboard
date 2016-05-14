@@ -25,19 +25,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wt-ff-bh4">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.86057470960000004" green="0.82381085880000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Settings" id="Xbl-6h-fGm">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="showAlert:" destination="BYZ-38-t0r" id="SL8-QT-iVL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.86057470960000004" green="0.82381085880000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Jn-oX-Ia9">
                                 <rect key="frame" x="0.0" y="104" width="600" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +78,7 @@
                                             <outlet property="topicDescr" destination="XaR-ZH-o2x" id="q78-qY-7iY"/>
                                             <outlet property="topicName" destination="Uor-86-cFj" id="ha7-i9-kto"/>
                                             <outlet property="topicPhoto" destination="HE4-hq-LPY" id="33v-QD-V5y"/>
+                                            <segue destination="SBQ-ga-M9b" kind="show" identifier="QuestionSegue" id="zYF-Bs-Z4P"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -99,6 +87,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RhU-7U-10M"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wt-ff-bh4">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.86057470960000004" green="0.82381085880000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem title="Settings" id="Xbl-6h-fGm">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="showAlert:" destination="BYZ-38-t0r" id="SL8-QT-iVL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.86057470960000004" green="0.82381085880000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.86057470960000004" green="0.82381085880000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

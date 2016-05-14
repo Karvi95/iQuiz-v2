@@ -53,7 +53,7 @@ class QuizQuestionViewController: UIViewController {
     var userAnswer : String!
     var intendedAnswer : String!
     
-    var questionsForASubject : [Question] = []
+    var currentTopic : Topic!
     var total : Int = 0
    
     
