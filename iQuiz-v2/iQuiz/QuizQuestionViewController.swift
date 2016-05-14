@@ -61,29 +61,6 @@ class QuizQuestionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-//        guard let unprocesseds = questionsFromJSON as [AnyObject]? else {return}
-//        
-//        for question in unprocesseds {
-//            guard let text = question["text"] as? String,
-//                let answer = question["answer"] as? String,
-//                let choices = question["answers"] as? [String] else {return}
-//            
-//            questionsForASubject.append(Question(text: text, answer: (Int(answer)! - 1), choices: choices))
-//        }
-//        
-//        total = questionsForASubject.count
-//        
-//        for aQuestion in questionsForASubject {
-//            QuestionName.text = aQuestion.text
-//            
-//            firstChoice.setTitle(aQuestion.choices[0], forState: .Normal)
-//            secondChoice.setTitle(aQuestion.choices[1], forState: .Normal)
-//            thirdChoice.setTitle(aQuestion.choices[2], forState: .Normal)
-//            fourthChoice.setTitle(aQuestion.choices[3], forState: .Normal)
-//            
-//        }
-        
     }
 
     override func didReceiveMemoryWarning() {

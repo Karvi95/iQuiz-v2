@@ -11,9 +11,9 @@ import Foundation
 public class Topic {
     public var subject : String
     public var desc : String
-    public var questions : [AnyObject]
+    public var questions : [Question]
     
-    init(subject : String, desc : String, questions : [AnyObject]) {
+    init(subject : String, desc : String, questions : [Question]) {
         self.subject = subject
         self.desc = desc
         self.questions = questions
