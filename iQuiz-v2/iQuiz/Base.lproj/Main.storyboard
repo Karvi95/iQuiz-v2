@@ -88,15 +88,15 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="topicDescr" destination="XaR-ZH-o2x" id="vqv-Pl-bv4"/>
-                                            <outlet property="topicName" destination="Uor-86-cFj" id="krH-N7-xYy"/>
-                                            <outlet property="topicPhoto" destination="HE4-hq-LPY" id="BcP-eG-3hA"/>
+                                            <outlet property="topicDescr" destination="XaR-ZH-o2x" id="q78-qY-7iY"/>
+                                            <outlet property="topicName" destination="Uor-86-cFj" id="ha7-i9-kto"/>
+                                            <outlet property="topicPhoto" destination="HE4-hq-LPY" id="33v-QD-V5y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3Wz-6F-aBb"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HGy-fE-0Uf"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Z44-V4-qZo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RhU-7U-10M"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -114,7 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="QuizTable" destination="3Jn-oX-Ia9" id="gxp-z1-xTZ"/>
+                        <outlet property="QuizTable" destination="3Jn-oX-Ia9" id="p8J-v3-acV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -475,10 +475,10 @@
                 <swipeGestureRecognizer direction="right" id="mtW-P4-3YA"/>
                 <swipeGestureRecognizer direction="right" id="cVW-zN-ljt"/>
             </objects>
-            <point key="canvasLocation" x="427" y="1441"/>
+            <point key="canvasLocation" x="450" y="1456"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rhY-Yp-Qd5"/>
+        <segue reference="MFY-Ww-DgP"/>
     </inferredMetricsTieBreakers>
 </document>

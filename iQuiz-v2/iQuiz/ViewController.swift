@@ -37,17 +37,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             self.QuizTable.reloadData()
         }
-        
-
-
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
     func dismissAlert(alert: UIAlertAction!) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -71,7 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if enteredText != nil {
                     URLToGo.targetURL = enteredText!
                 } else {
-                    URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
+                    URLToGo.targetURL = "http://tednewardsandbox.site44.com/questions.json"
                 }
                 self!.QuizTable.reloadData()
             }
