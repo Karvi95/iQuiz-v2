@@ -48,13 +48,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
-    func dismissAlert(alert: UIAlertAction!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+//    func dismissAlert(alert: UIAlertAction!) {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//    
     @IBAction func showAlert(sender: AnyObject) {
         let alertController : UIAlertController = UIAlertController(title: "Alert!", message: "Settings go here.", preferredStyle: .Alert)
-        let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: dismissAlert)
+        let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: nil )
         
         alertController.addAction(okAction)
         

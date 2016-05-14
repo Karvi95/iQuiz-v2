@@ -50,24 +50,21 @@ class QuizQuestionViewController: UIViewController {
         submission.enabled = true
         submission.backgroundColor = UIColor.purpleColor()
     }
-    
+
     
     @IBAction func submit(sender: UIButton) {
         let aVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizAnswer") as! QuizAnswerViewController
         aVC.result = result
+        aVC.intendedAnswer = intendedAnswer
         
         if userAnswer == intendedAnswer {
             userScore += 1
         }
         
-        if currQNum < total {
-            currQNum += 1
-        }
-
+        currQNum += 1
         self.presentViewController(aVC, animated: false, completion: nil)
     }
 
-    
     func highlight() {
         firstChoice.backgroundColor = UIColor.clearColor()
         secondChoice.backgroundColor = UIColor.clearColor()
@@ -110,7 +107,6 @@ class QuizQuestionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
