@@ -19,15 +19,23 @@ class QuizQuestionViewController: UIViewController {
     
     @IBAction func firstChoicePressed(sender: UIButton) {
         userAnswer = firstChoice.currentTitle
+        highlight()
+        firstChoice.backgroundColor = UIColor.redColor()
     }
     @IBAction func secondChoicePressed(sender: UIButton) {
         userAnswer = secondChoice.currentTitle
+        highlight()
+        secondChoice.backgroundColor = UIColor.redColor()
     }
     @IBAction func thirdChoicePressed(sender: UIButton) {
         userAnswer = thirdChoice.currentTitle
+        highlight()
+        thirdChoice.backgroundColor = UIColor.redColor()
     }
     @IBAction func fourthChoicePressed(sender: UIButton) {
         userAnswer = fourthChoice.currentTitle
+        highlight()
+        fourthChoice.backgroundColor = UIColor.redColor()
     }
     
     
@@ -36,10 +44,10 @@ class QuizQuestionViewController: UIViewController {
 
     
     func highlight() {
-        firstChoice.backgroundColor = UIColor.blueColor()
-        secondChoice.backgroundColor = UIColor.blueColor()
-        thirdChoice.backgroundColor = UIColor.blueColor()
-        fourthChoice.backgroundColor = UIColor.blueColor()
+        firstChoice.backgroundColor = UIColor.clearColor()
+        secondChoice.backgroundColor = UIColor.clearColor()
+        thirdChoice.backgroundColor = UIColor.clearColor()
+        fourthChoice.backgroundColor = UIColor.clearColor()
     }
     
     
