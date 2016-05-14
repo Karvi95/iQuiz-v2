@@ -254,6 +254,7 @@
                         <outlet property="firstChoice" destination="fiN-GB-NjG" id="fz0-of-VfK"/>
                         <outlet property="fourthChoice" destination="aOx-ua-BKR" id="HkK-yF-K9m"/>
                         <outlet property="secondChoice" destination="moX-fG-Vcd" id="9HO-Ro-4P8"/>
+                        <outlet property="submission" destination="W1h-sI-lbH" id="2Vw-cC-xRj"/>
                         <outlet property="thirdChoice" destination="Ohe-rk-aeb" id="19w-MY-eBf"/>
                     </connections>
                 </viewController>

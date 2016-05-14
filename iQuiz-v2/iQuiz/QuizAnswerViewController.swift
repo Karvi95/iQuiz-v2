@@ -15,9 +15,9 @@ class QuizAnswerViewController: UIViewController {
     @IBOutlet weak var AnswerImage: UIImageView!
     @IBOutlet weak var correctAnswer: UILabel!
     
-    var userAnswer : String!
     var intendedAnswer : String!
-    var userScore : Int = 0
+    
+    var result : Bool = true
     
     @IBAction func next(sender: UIButton) {
     }
@@ -28,9 +28,8 @@ class QuizAnswerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if userAnswer == intendedAnswer {
+        if result {
             AnswerImage.image = answerImages[0]
-            userScore += 1
         } else {
             AnswerImage.image = answerImages[1]
         }

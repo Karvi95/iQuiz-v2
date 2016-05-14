@@ -17,31 +17,54 @@ class QuizQuestionViewController: UIViewController {
     @IBOutlet weak var thirdChoice: UIButton!
     @IBOutlet weak var fourthChoice: UIButton!
     
+    @IBOutlet weak var submission: UIButton!
+    
     @IBAction func firstChoicePressed(sender: UIButton) {
         userAnswer = firstChoice.currentTitle
         highlight()
         firstChoice.backgroundColor = UIColor.redColor()
+        submission.enabled = true
+        submission.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        submission.backgroundColor = UIColor.purpleColor()
     }
     @IBAction func secondChoicePressed(sender: UIButton) {
         userAnswer = secondChoice.currentTitle
         highlight()
         secondChoice.backgroundColor = UIColor.redColor()
+        submission.enabled = true
+        submission.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        submission.backgroundColor = UIColor.purpleColor()
     }
     @IBAction func thirdChoicePressed(sender: UIButton) {
         userAnswer = thirdChoice.currentTitle
         highlight()
         thirdChoice.backgroundColor = UIColor.redColor()
+        submission.enabled = true
+        submission.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        submission.backgroundColor = UIColor.purpleColor()
     }
     @IBAction func fourthChoicePressed(sender: UIButton) {
         userAnswer = fourthChoice.currentTitle
         highlight()
         fourthChoice.backgroundColor = UIColor.redColor()
+        submission.enabled = true
+        submission.backgroundColor = UIColor.purpleColor()
     }
     
     
     @IBAction func submit(sender: UIButton) {
+        let aVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizAnswer") as! QuizAnswerViewController
+        aVC.result = result
         
-    
+        if userAnswer == intendedAnswer {
+            userScore += 1
+        }
+        
+        if currQNum < total {
+            currQNum += 1
+        }
+
+        self.presentViewController(aVC, animated: false, completion: nil)
     }
 
     
@@ -58,9 +81,10 @@ class QuizQuestionViewController: UIViewController {
     var userAnswer : String!
     var intendedAnswer : String!
     
+    var userScore : Int = 0
     var currQNum : Int = 0
     var total : Int = 0
-   
+    var result : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +96,13 @@ class QuizQuestionViewController: UIViewController {
         secondChoice.setTitle(currentTopic.questions[currQNum].choices[1], forState: UIControlState.Normal)
         thirdChoice.setTitle(currentTopic.questions[currQNum].choices[2], forState: UIControlState.Normal)
         fourthChoice.setTitle(currentTopic.questions[currQNum].choices[3], forState: UIControlState.Normal)
+        intendedAnswer = currentTopic.questions[currQNum].correctAnswer
         
         total = currentTopic.questions.count
+        submission.enabled = false
+
+        submission.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        submission.backgroundColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {

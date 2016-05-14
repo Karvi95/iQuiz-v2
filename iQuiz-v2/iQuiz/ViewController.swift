@@ -98,11 +98,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
         qVC.currentTopic = topicsInQuiz[indexPath.row]
-        
+
         self.presentViewController(qVC, animated: false, completion: nil)
-        
-
-        
-
     }
 }
