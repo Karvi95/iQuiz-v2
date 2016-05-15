@@ -17,8 +17,8 @@ class QuizFinishedViewController: UIViewController {
     
     var currentTopic : Topic!
     
-    var userScoreInt : Int = 0
-    var totalInt : Int = 0
+    var userScoreInt : Int = 3
+    var totalInt : Int = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()

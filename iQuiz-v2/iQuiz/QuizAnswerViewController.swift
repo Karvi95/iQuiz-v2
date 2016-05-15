@@ -57,6 +57,7 @@ class QuizAnswerViewController: UIViewController {
         } else {
             let rVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
             rVC.userScoreInt = self.userScore
+            rVC.totalInt = self.total
             self.presentViewController(rVC, animated: true, completion: nil)
         }
     }
