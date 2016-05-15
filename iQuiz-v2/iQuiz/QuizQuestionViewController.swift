@@ -21,6 +21,7 @@ class QuizQuestionViewController: UIViewController {
     
     @IBAction func firstChoicePressed(sender: UIButton) {
         userAnswer = firstChoice.currentTitle
+//        print("USERANSWER \(userAnswer)")
         highlight()
         firstChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -29,6 +30,7 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func secondChoicePressed(sender: UIButton) {
         userAnswer = secondChoice.currentTitle
+//        print("USERANSWER \(userAnswer)")
         highlight()
         secondChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -37,6 +39,7 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func thirdChoicePressed(sender: UIButton) {
         userAnswer = thirdChoice.currentTitle
+//        print("USERANSWER \(userAnswer)")
         highlight()
         thirdChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -45,6 +48,7 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func fourthChoicePressed(sender: UIButton) {
         userAnswer = fourthChoice.currentTitle
+//        print("USERANSWER \(userAnswer)")
         highlight()
         fourthChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -54,14 +58,25 @@ class QuizQuestionViewController: UIViewController {
     
     @IBAction func submit(sender: UIButton) {
         let aVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizAnswer") as! QuizAnswerViewController
-        aVC.result = result
-        aVC.intendedAnswer = intendedAnswer
+        
+        aVC.intendedAnswer = self.intendedAnswer
+//        print("INTENDED: \(self.intendedAnswer)")
         
         if userAnswer == intendedAnswer {
+            self.result = true
             userScore += 1
         }
+//        print("RESULT \(self.result)")
         
-        currQNum += 1
+        aVC.result = self.result
+        
+        aVC.currentTopic = self.currentTopic
+                
+        aVC.userScore = self.userScore
+        aVC.currQNum = self.currQNum
+        aVC.total = self.total
+        
+//        print("CURRENTQNUMBER \(currQNum)")
         self.presentViewController(aVC, animated: false, completion: nil)
     }
 
@@ -81,7 +96,7 @@ class QuizQuestionViewController: UIViewController {
     var userScore : Int = 0
     var currQNum : Int = 0
     var total : Int = 0
-    var result : Bool = true
+    var result : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

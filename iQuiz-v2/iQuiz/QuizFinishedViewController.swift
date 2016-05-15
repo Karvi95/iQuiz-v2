@@ -14,12 +14,16 @@ class QuizFinishedViewController: UIViewController {
     @IBOutlet weak var Total: UILabel!
     @IBOutlet weak var resultComment: UILabel!
     
-    @IBAction func returnHome(sender: UIButton) {
-    }
+    
+    var currentTopic : Topic!
+    
+    var userScoreInt : Int = 0
+    var totalInt : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userScore.text = "\(userScoreInt)"
+        Total.text = "\(totalInt)"
         // Do any additional setup after loading the view.
     }
 

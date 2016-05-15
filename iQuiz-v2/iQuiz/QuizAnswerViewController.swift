@@ -17,24 +17,53 @@ class QuizAnswerViewController: UIViewController {
     
     var intendedAnswer : String!
     
-    var result : Bool = true
+    var result : Bool = false
     
-    @IBAction func next(sender: UIButton) {
-    }
-
-    var answerImages = [UIImage(named: "y"), UIImage(named: "n")]
+    var currentTopic : Topic!
+    
+    var userScore : Int = 0
+    var currQNum : Int = 0
+    var total : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+//        QuestionName.text = currentTopic.questions[currQNum].text
         if result {
             AnswerImage.image = answerImages[0]
         } else {
             AnswerImage.image = answerImages[1]
         }
-        correctAnswer.text = intendedAnswer
+//        correctAnswer.text = "The answer was: " + intendedAnswer
+        print("TOPIC: \(self.currentTopic)")
+        print("INTENDED: \(self.intendedAnswer)")
+        print("RESULT: \(self.result)")
+        print("USERSCORE: \(self.userScore)")
+        print("CURRQNUM: \(self.currQNum)")
+        print("TOTAL: \(self.total)")
+    
     }
+    
+    @IBAction func next(sender: UIButton) {
+        if currQNum < total {
+        let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
+            qVC.currentTopic = self.currentTopic
+            qVC.userScore = self.userScore
+            currQNum += 1
+            qVC.currQNum = self.currQNum
+            self.presentViewController(qVC, animated: true, completion: nil)
+        } else {
+            let rVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizFinished") as! QuizFinishedViewController
+            rVC.userScoreInt = self.userScore
+            self.presentViewController(rVC, animated: true, completion: nil)
+        }
+    }
+
+    var answerImages = [UIImage(named: "y"), UIImage(named: "n")]
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
