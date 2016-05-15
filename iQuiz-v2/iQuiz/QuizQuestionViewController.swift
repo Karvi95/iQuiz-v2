@@ -60,13 +60,13 @@ class QuizQuestionViewController: UIViewController {
         let aVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizAnswer") as! QuizAnswerViewController
         
         aVC.intendedAnswer = self.intendedAnswer
-//        print("INTENDED: \(self.intendedAnswer)")
+//        print("INTENDED IN SUBMIT: \(self.intendedAnswer)")
         
         if userAnswer == intendedAnswer {
             self.result = true
             userScore += 1
         }
-//        print("RESULT \(self.result)")
+//        print("RESULT IN SUBMIT: \(self.result)")
         
         aVC.result = self.result
         
@@ -76,7 +76,9 @@ class QuizQuestionViewController: UIViewController {
         aVC.currQNum = self.currQNum
         aVC.total = self.total
         
-//        print("CURRENTQNUMBER \(currQNum)")
+//        print("CURRENTQNUMBER: \(currQNum)")
+        
+        print("I SHOULD PRINT FIRST")
         self.presentViewController(aVC, animated: false, completion: nil)
     }
 

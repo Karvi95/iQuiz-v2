@@ -30,20 +30,21 @@ class QuizAnswerViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-//        QuestionName.text = currentTopic.questions[currQNum].text
+//        QuestionName!.text! = currentTopic.questions[currQNum].text
         if result {
             AnswerImage.image = answerImages[0]
         } else {
             AnswerImage.image = answerImages[1]
         }
 //        correctAnswer.text = "The answer was: " + intendedAnswer
-        print("TOPIC: \(self.currentTopic)")
-        print("INTENDED: \(self.intendedAnswer)")
-        print("RESULT: \(self.result)")
-        print("USERSCORE: \(self.userScore)")
-        print("CURRQNUM: \(self.currQNum)")
-        print("TOTAL: \(self.total)")
-    
+//        print("TOPIC IN THIRD: \(self.currentTopic)")
+//        print("INTENDED IN THIRD: \(self.intendedAnswer)")
+//        print("RESULT IN THIRD: \(self.result)")
+//        print("USERSCORE IN THIRD: \(self.userScore)")
+//        print("CURRQNUM IN THIRD: \(self.currQNum)")
+//        print("TOTAL IN THIRD: \(self.total)")
+        
+        print("I SHOULD PRINT SECOND")
     }
     
     @IBAction func next(sender: UIButton) {
@@ -64,8 +65,6 @@ class QuizAnswerViewController: UIViewController {
 
     var answerImages = [UIImage(named: "y"), UIImage(named: "n")]
     
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
