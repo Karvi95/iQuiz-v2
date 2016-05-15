@@ -30,25 +30,17 @@ class QuizAnswerViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-//        QuestionName!.text! = currentTopic.questions[currQNum].text
+        QuestionName!.text! = currentTopic.questions[currQNum].text
         if result {
             AnswerImage.image = answerImages[0]
         } else {
             AnswerImage.image = answerImages[1]
         }
-//        correctAnswer.text = "The answer was: " + intendedAnswer
-//        print("TOPIC IN THIRD: \(self.currentTopic)")
-//        print("INTENDED IN THIRD: \(self.intendedAnswer)")
-//        print("RESULT IN THIRD: \(self.result)")
-//        print("USERSCORE IN THIRD: \(self.userScore)")
-//        print("CURRQNUM IN THIRD: \(self.currQNum)")
-//        print("TOTAL IN THIRD: \(self.total)")
-        
-        print("I SHOULD PRINT SECOND")
+        correctAnswer.text = "The answer was: " + intendedAnswer
     }
     
     @IBAction func next(sender: UIButton) {
-        if currQNum < total {
+        if currQNum != total - 1 {
         let qVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizQuestion") as! QuizQuestionViewController
             qVC.currentTopic = self.currentTopic
             qVC.userScore = self.userScore

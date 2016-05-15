@@ -21,7 +21,6 @@ class QuizQuestionViewController: UIViewController {
     
     @IBAction func firstChoicePressed(sender: UIButton) {
         userAnswer = firstChoice.currentTitle
-//        print("USERANSWER \(userAnswer)")
         highlight()
         firstChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -30,7 +29,6 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func secondChoicePressed(sender: UIButton) {
         userAnswer = secondChoice.currentTitle
-//        print("USERANSWER \(userAnswer)")
         highlight()
         secondChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -39,7 +37,6 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func thirdChoicePressed(sender: UIButton) {
         userAnswer = thirdChoice.currentTitle
-//        print("USERANSWER \(userAnswer)")
         highlight()
         thirdChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -48,7 +45,6 @@ class QuizQuestionViewController: UIViewController {
     }
     @IBAction func fourthChoicePressed(sender: UIButton) {
         userAnswer = fourthChoice.currentTitle
-//        print("USERANSWER \(userAnswer)")
         highlight()
         fourthChoice.backgroundColor = UIColor.redColor()
         submission.enabled = true
@@ -60,13 +56,11 @@ class QuizQuestionViewController: UIViewController {
         let aVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuizAnswer") as! QuizAnswerViewController
         
         aVC.intendedAnswer = self.intendedAnswer
-//        print("INTENDED IN SUBMIT: \(self.intendedAnswer)")
         
         if userAnswer == intendedAnswer {
             self.result = true
             userScore += 1
         }
-//        print("RESULT IN SUBMIT: \(self.result)")
         
         aVC.result = self.result
         
@@ -76,9 +70,6 @@ class QuizQuestionViewController: UIViewController {
         aVC.currQNum = self.currQNum
         aVC.total = self.total
         
-//        print("CURRENTQNUMBER: \(currQNum)")
-        
-        print("I SHOULD PRINT FIRST")
         self.presentViewController(aVC, animated: false, completion: nil)
     }
 
